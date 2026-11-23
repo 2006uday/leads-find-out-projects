@@ -48,6 +48,26 @@ const set = (s,h) => { const e=$(s); if(e) e.innerHTML=h; };
 $$("[data-listing]").forEach(a => a.href = LISTING);
 set("#yr", new Date().getFullYear());
 
+/* Quick Booking Bar Date Pre-fill */
+(function() {
+  const cin = $("#h-cin"), cout = $("#h-cout"), guests = $("#h-guests");
+  if (cin && cout) {
+    const d0 = new Date();
+    const d1 = new Date(Date.now() + 86400000);
+    cin.value = d0.toISOString().split("T")[0];
+    cout.value = d1.toISOString().split("T")[0];
+    cin.min = cin.value;
+    cout.min = cout.value;
+    cin.addEventListener("change", () => {
+      if (cout.value <= cin.value) {
+        const next = new Date(new Date(cin.value).getTime() + 86400000);
+        cout.value = next.toISOString().split("T")[0];
+      }
+      cout.min = cin.value;
+    });
+  }
+})();
+
 /* ---------- Photos ---------- */
 const photo = (k,cls="") => `<img class="${cls}" src="${src(k)}" alt="${IMG[k][0]}" loading="lazy" decoding="async">`;
 const HERO = ["ext-wide","room-deluxe-sofa","lobby-petals","bathroom","lobby-reception"];
@@ -156,8 +176,22 @@ if($("#form")){
 
 /* ---------- Menu + reveal ---------- */
 const mb=$("#menuBtn"), lk=$("#links");
-mb.addEventListener("click",()=>{const o=lk.classList.toggle("open");mb.setAttribute("aria-expanded",o);});
-lk.addEventListener("click",e=>{if(e.target.tagName==="A"){lk.classList.remove("open");mb.setAttribute("aria-expanded",false);}});
+if (mb && lk) {
+  mb.addEventListener("click",()=>{
+    const o=lk.classList.toggle("open");
+    mb.classList.toggle("open", o);
+    mb.setAttribute("aria-expanded",o);
+    document.body.style.overflow = o ? "hidden" : "";
+  });
+  lk.addEventListener("click",e=>{
+    if(e.target.tagName==="A"){
+      lk.classList.remove("open");
+      mb.classList.remove("open");
+      mb.setAttribute("aria-expanded",false);
+      document.body.style.overflow = "";
+    }
+  });
+}
 if("IntersectionObserver" in window){
   const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target);}}),{threshold:.12,rootMargin:"0px 0px -40px 0px"});
   $$(".rv").forEach(el=>io.observe(el));
