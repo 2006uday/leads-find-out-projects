@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Book & Contact · Hotel Ambica Palace, Safdarjung Enclave</title>
+<meta name="description" content="Book or enquire at Hotel Ambica Palace: choose dates, guests and room, see your stay summary and confirm on the official Booking.com listing.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<a href="#main" class="btn btn-gold" style="position:absolute;left:-999px" onfocus="this.style.left='1rem';this.style.top='1rem';this.style.zIndex=99" onblur="this.style.left='-999px'">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="logo" viewBox="0 0 48 48">
+<rect x="1" y="1" width="46" height="46" rx="12" fill="#3b2417" stroke="#c9a35b" stroke-width="1.5"/>
+<path d="M10 40V22a14 14 0 0 1 28 0v18" fill="none" stroke="#c9a35b" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M16 40V24a8 8 0 0 1 16 0v16" fill="none" stroke="#efe3cc" stroke-width="2" stroke-linecap="round"/>
+<path d="M22 40V26a2 2 0 0 1 4 0v14" fill="#c9a35b"/><circle cx="24" cy="10" r="2.2" fill="#c9a35b"/>
+<path d="M7 40h34" stroke="#c9a35b" stroke-width="2.4" stroke-linecap="round"/></symbol></defs></svg>
+<header class="top"><div class="wrap nav">
+<a class="brand" href="index.html" aria-label="Hotel Ambica Palace home"><svg aria-hidden="true"><use href="#logo"/></svg>
+<span><b>Hotel Ambica Palace</b><small>Near AIIMS · Safdarjung Enclave</small></span></a>
+<ul class="links" id="links"><li><a href="index.html">Home</a></li><li><a href="rooms.html">Rooms</a></li><li><a href="services.html">Services & Policies</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="location.html">Location</a></li><li><a href="reviews.html">Guest Impressions</a></li><li><a href="book.html" aria-current="page">Book & Contact</a></li></ul>
+<a class="btn btn-gold hide-sm" href="book.html">Contact us</a>
+<button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="links"><span></span></button>
+</div></header>
+<main id="main">
+<section class="phead" style="padding-bottom:clamp(2.6rem,6vw,4.5rem)"><div class="wrap rv">
+<p class="crumbs"><a href="index.html">Home</a> / Book &amp; Contact</p><h1>Plan your stay in under a minute</h1><p>Choose dates, guests and a room to see your stay summary. Then confirm live rates and availability on the official listing.</p></div></section>
+<section class="dark"><div class="wrap">
+<div class="book" style="margin-top:0">
+<form class="panel" id="form" novalidate>
+<div class="f"><label for="cin">Check-in</label><input type="date" id="cin" required></div>
+<div class="f"><label for="cout">Check-out</label><input type="date" id="cout" required></div>
+<div class="f"><label id="gl">Adults</label><div class="stepper" role="group" aria-labelledby="gl"><button type="button" data-s="adults" data-d="-1" aria-label="Fewer adults">−</button><output id="adults" aria-live="polite">2</output><button type="button" data-s="adults" data-d="1" aria-label="More adults">+</button></div></div>
+<div class="f"><label id="rl">Rooms</label><div class="stepper" role="group" aria-labelledby="rl"><button type="button" data-s="rms" data-d="-1" aria-label="Fewer rooms">−</button><output id="rms" aria-live="polite">1</output><button type="button" data-s="rms" data-d="1" aria-label="More rooms">+</button></div></div>
+<div class="f full"><label for="room">Room type</label><select id="room"></select></div>
+<div class="f full"><label for="name">Your name</label><input id="name" autocomplete="name" placeholder="Full name"></div>
+<div class="f full"><label for="note">Special requests (optional)</label><textarea id="note" placeholder="Late arrival, ground floor, visiting a patient at AIIMS…"></textarea></div>
+<p class="err" id="err" role="alert"></p>
+<div class="f full"><button class="btn btn-gold" type="submit">Show my stay summary</button></div>
+</form>
+<aside class="summary" aria-live="polite"><h3>Your stay</h3>
+<dl><dt>Dates</dt><dd id="s-dates">—</dd><dt>Nights</dt><dd id="s-nights">—</dd><dt>Guests</dt><dd id="s-guests">—</dd><dt>Room</dt><dd id="s-room">—</dd></dl>
+<div class="status" id="status">Select your dates to see a summary. Rates and final availability are shown on the listing.</div>
+<a class="btn btn-gold" id="listingBtn" href="#" data-listing target="_blank" rel="noopener">Book on Booking.com</a>
+<button class="btn btn-ghost" type="button" id="copy">Copy enquiry text</button></aside>
+</div>
+<div class="contact">
+<div><h3>Address</h3><p>Hotel Ambica Palace, A-1/300, Block A-1, Safdarjung Enclave, New Delhi 110029</p><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Ambica+Palace+Safdarjung+Enclave+New+Delhi" target="_blank" rel="noopener" style="color:var(--gold)">Open in Google Maps →</a></p></div>
+<div><h3>Front desk</h3><p>Open 24 hours. Phone details and live rates are on the official listing.</p></div>
+<div><h3>Official listing</h3><p><a href="#" data-listing target="_blank" rel="noopener" style="color:var(--gold)">View Hotel Ambica Palace on Booking.com →</a></p></div>
+</div></div></section>
+</main>
+<footer><div class="wrap"><span>© <span id="yr"></span> Hotel Ambica Palace · A-1/300, Safdarjung Enclave, New Delhi 110029</span>
+<span><a href="index.html">Home</a> <a href="rooms.html">Rooms</a> <a href="services.html">Services & Policies</a> <a href="gallery.html">Gallery</a> <a href="location.html">Location</a> <a href="reviews.html">Guest Impressions</a> <a href="book.html">Book & Contact</a> · <a href="#" data-listing target="_blank" rel="noopener">Booking.com listing</a></span></div></footer>
+<script src="app.js"></script></body></html>
